@@ -59,13 +59,7 @@ public class Order {
 			float itemAmount = item.getProduct().getUnitPrice() * item.getQuantity();
 			totalItem = getAccesoryCost(item, totalItem, itemAmount);
 			totalItem = getBikeCost(item, totalItem, itemAmount);
-			if (item.getProduct().getCategory() == ProductCategory.Cloathing) {
-				float cloathingDiscount = 0;
-				if (item.getQuantity() > 2) {
-					cloathingDiscount = item.getProduct().getUnitPrice();
-				}
-				totalItem = itemAmount - cloathingDiscount;
-			}
+			totalItem = getCloathingCost(item, totalItem, itemAmount);
 			totalItems += totalItem;
 		}
 
@@ -76,6 +70,17 @@ public class Order {
 
 		// total=totalItemst + tax + 15 shipping
 		return totalItems + totalItems * 5 / 100 + 15;
+	}
+
+	private float getCloathingCost(OrderItem item, float totalItem, float itemAmount) {
+		if (item.getProduct().getCategory() == ProductCategory.Cloathing) {
+			float cloathingDiscount = 0;
+			if (item.getQuantity() > 2) {
+				cloathingDiscount = item.getProduct().getUnitPrice();
+			}
+			totalItem = itemAmount - cloathingDiscount;
+		}
+		return totalItem;
 	}
 
 	private float getBikeCost(OrderItem item, float totalItem, float itemAmount) {
