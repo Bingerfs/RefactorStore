@@ -63,13 +63,20 @@ public class Order {
 			totalItems += totalItem;
 		}
 
-		if (this.deliveryCountry == "USA"){
-			// total=totalItems + tax + 0 shipping
-			return totalItems + totalItems * 5 / 100;
-		}
 
-		// total=totalItemst + tax + 15 shipping
-		return totalItems + totalItems * 5 / 100 + 15;
+		totalItems = applyTaxing(totalItems, this.deliveryCountry);
+
+		return totalItems;
+	}
+
+	private float applyTaxing(float totalItems, String deliveryCountry){
+		if (deliveryCountry == "USA"){
+			// total=totalItems + tax + 0 shipping
+			totalItems = totalItems + totalItems * 5 / 100;
+		} else{
+			totalItems = totalItems + totalItems * 5 / 100 + 15;
+		}
+		return totalItems;
 	}
 
 	private float getCloathingCost(OrderItem item, float totalItem, float itemAmount) {
