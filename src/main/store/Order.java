@@ -53,59 +53,62 @@ public class Order {
 	}
 
 	public float total() {
-		float totalItems = 0;
+		float totalItemsPrice = 0;
 		for (OrderItem item : items) {
-			float totalItem=0;
+			float itemPrice=0;
 			float itemAmount = item.getProduct().getUnitPrice() * item.getQuantity();
-			totalItem = getAccesoryCost(item, totalItem, itemAmount);
-			totalItem = getBikeCost(item, totalItem, itemAmount);
-			totalItem = getCloathingCost(item, totalItem, itemAmount);
-			totalItems += totalItem;
+			itemPrice = getOrderCost(item, itemPrice, itemAmount);
+			totalItemsPrice += itemPrice;
 		}
 
 
-		totalItems = applyTaxing(totalItems, this.deliveryCountry);
+		totalItemsPrice = applyTaxing(totalItemsPrice, this.deliveryCountry);
 
-		return totalItems;
+		return totalItemsPrice;
 	}
 
-	private float applyTaxing(float totalItems, String deliveryCountry){
+	private float applyTaxing(float totalItemsPrice, String deliveryCountry){
 		if (deliveryCountry == "USA"){
-			// total=totalItems + tax + 0 shipping
-			totalItems = totalItems + totalItems * 5 / 100;
+			// total=totalItemsPrice + tax + 0 shipping
+			totalItemsPrice = totalItemsPrice + totalItemsPrice * 5 / 100;
 		} else{
-			totalItems = totalItems + totalItems * 5 / 100 + 15;
+			totalItemsPrice = totalItemsPrice + totalItemsPrice * 5 / 100 + 15;
 		}
-		return totalItems;
+		return totalItemsPrice;
 	}
 
-	private float getCloathingCost(OrderItem item, float totalItem, float itemAmount) {
-		if (item.getProduct().getCategory() == ProductCategory.Cloathing) {
+	private float getOrderCost(OrderItem item, float itemPrice, float itemAmount){
+		if (item.getProduct().getCategory() == ProductCategory.Cloathing)
+			itemPrice = getCloathingCost(item, itemPrice, itemAmount);
+		if (item.getProduct().getCategory() == ProductCategory.Bikes)
+			itemPrice = getBikeCost(item, itemPrice, itemAmount);
+		if (item.getProduct().getCategory() == ProductCategory.Accessories)
+			itemPrice = getAccesoryCost(item, itemPrice, itemAmount);
+		return itemPrice;
+	}
+
+	private float getCloathingCost(OrderItem item, float itemPrice, float itemAmount) {
 			float cloathingDiscount = 0;
 			if (item.getQuantity() > 2) {
 				cloathingDiscount = item.getProduct().getUnitPrice();
 			}
-			totalItem = itemAmount - cloathingDiscount;
-		}
-		return totalItem;
+			itemPrice = itemAmount - cloathingDiscount;
+		return itemPrice;
 	}
 
-	private float getBikeCost(OrderItem item, float totalItem, float itemAmount) {
-		if (item.getProduct().getCategory() == ProductCategory.Bikes) {
+	private float getBikeCost(OrderItem item, float itemPrice, float itemAmount) {
+
 			// 20% discount for Bikes
-			totalItem = itemAmount - itemAmount * 20 / 100;
-		}
-		return totalItem;
+			itemPrice = itemAmount - itemAmount * 20 / 100;
+		return itemPrice;
 	}
 
-	private float getAccesoryCost(OrderItem item, float totalItem, float itemAmount) {
-		if (item.getProduct().getCategory() == ProductCategory.Accessories) {
+	private float getAccesoryCost(OrderItem item, float itemPrice, float itemAmount) {
 			float booksDiscount = 0;
 			if (itemAmount >= 100) {
 				booksDiscount = itemAmount * 10 / 100;
 			}
-			totalItem = itemAmount - booksDiscount;
-		}
-		return totalItem;
+			itemPrice = itemAmount - booksDiscount;
+		return itemPrice;
 	}
 }
