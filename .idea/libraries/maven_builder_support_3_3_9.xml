@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="maven-builder-support-3.3.9">
+    <CLASSES>
+      <root url="jar://$APPLICATION_HOME_DIR$/lib/maven-builder-support-3.3.9.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
