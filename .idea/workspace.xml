@@ -115,8 +115,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/store/Order.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="916">
-              <caret line="111" column="24" selection-start-line="111" selection-start-column="24" selection-end-line="111" selection-end-column="24" />
+            <state relative-caret-position="136">
+              <caret line="73" column="12" lean-forward="true" selection-start-line="73" selection-start-column="12" selection-end-line="73" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -236,7 +236,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1583243338537" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1583243538130" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$APPLICATION_HOME_DIR$/lib/maven-builder-support-3.3.9.jar!/" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -357,12 +357,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="OrderTest - 2020.03.03 at 08h 56m 36s.xml">
-      <configuration name="OrderTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="OrderTest - 2020.03.03 at 08h 58m 39s.xml">
-      <configuration name="OrderTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="OrderTest - 2020.03.03 at 09h 16m 18s.xml">
       <configuration name="OrderTest" configurationId="JUnit" />
     </history-entry>
@@ -385,6 +379,12 @@
       <configuration name="OrderTest" configurationId="JUnit" />
     </history-entry>
     <history-entry file="OrderTest - 2020.03.03 at 09h 42m 35s.xml">
+      <configuration name="OrderTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="OrderTest - 2020.03.03 at 09h 47m 48s.xml">
+      <configuration name="OrderTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="OrderTest - 2020.03.03 at 09h 48m 55s.xml">
       <configuration name="OrderTest" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -496,8 +496,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/store/Order.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="916">
-          <caret line="111" column="24" selection-start-line="111" selection-start-column="24" selection-end-line="111" selection-end-column="24" />
+        <state relative-caret-position="136">
+          <caret line="73" column="12" lean-forward="true" selection-start-line="73" selection-start-column="12" selection-end-line="73" selection-end-column="12" />
         </state>
       </provider>
     </entry>

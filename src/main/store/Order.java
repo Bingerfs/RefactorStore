@@ -68,12 +68,12 @@ public class Order {
 	}
 
 	private float applyTaxing(float totalItemsPrice, String deliveryCountry){
-		if (deliveryCountry == "USA"){
+		if (deliveryCountry == "USA")
 			// total=totalItemsPrice + tax + 0 shipping
 			totalItemsPrice = totalItemsPrice + totalItemsPrice * 5 / 100;
-		} else{
+		else
 			totalItemsPrice = totalItemsPrice + totalItemsPrice * 5 / 100 + 15;
-		}
+
 		return totalItemsPrice;
 	}
 
